@@ -12,7 +12,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/ddnWizzie/transport"
+	transport "github.com/ddnWizzie/transport"
 	"github.com/icholy/utm"
 	geo "github.com/kellydunn/golang-geo"
 	uuid "github.com/satori/go.uuid"
@@ -79,6 +79,15 @@ func (s *StatePlane) PlaneService() {
 		s.CreatePolygon(msg)
 		// s.AddPolygon(msg)
 		time.Sleep(10 * time.Second)
+
+		// s.LatlngToPointMatrices(msg)
+		width := 35.0
+		height := 21.0
+
+		x := 261.0
+		y := 208.0
+
+		s.TranslatePercentToLatlng(x, y, width, height, msg)
 
 	}
 	// }(s.Wg)
